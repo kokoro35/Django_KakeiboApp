@@ -1,0 +1,32 @@
+{% extends 'kakeibo/base.html' %}
+{% block content %}
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumb -->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{% url 'kakeibo:kakeibo_list' %}">TOP</a>
+        </li>
+        <li class="breadcrumb-item active">カテゴリ毎の割合グラフ</li>
+      </ol>
+      <!-- ページタイトル -->
+      <div class="card mb-3">
+        <div class="card-header">
+          <h3><b>家計簿アプリ（割合グラフ）</b></h3></div>
+        <div class="card-body">
+          <!-- 円グラフの描写 -->
+          <div class="chart_container">
+            <canvas id='CircleChart' style="position: relative; height:1vh; width:1vw"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .chart_container {
+      whith: 320px;
+      margin: auto;
+    }
+  </style>
+{% endblock content %}

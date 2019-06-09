@@ -1,0 +1,25 @@
+{% extends 'kakeibo/base.html' %}
+{% block content %}
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs -->
+      <ol class="breadcrumb">
+        <li class="breadcrumbs-item">
+          <a href="{% url 'kakeibo:kakeibo_list' %}">TOP</a>
+        </li>
+        <li class="breadcrumbs-item active">家計簿アプリ</li>
+      </ol>
+      <!-- Example DataTables Card -->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-server"></i> <b>家計簿アプリ</b></div>
+        <div class="card-body">
+          <div class="alert alert-info" role="alert">
+            データの削除が正常に行われました。</div>
+            <a class="btn btn-primary float-right" href="{% url 'kakeibo:kakeibo_list' %}">戻る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

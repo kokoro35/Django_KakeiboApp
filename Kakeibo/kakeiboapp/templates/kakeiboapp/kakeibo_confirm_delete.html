@@ -1,0 +1,32 @@
+{% extends 'kakeibo/base.html' %}
+{% block content %}
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumb -->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{% url 'kakeibo:kakeibo_list' %}">TOP</a>
+        </li>
+        <li class="breadcrumb-item active">家計簿アプリ</li>
+      </ol>
+      <!-- Example DataTables Card -->
+      <div class="card mb-3">
+        <div class="card-header">
+          <h3>データ削除</h3>
+        </div>
+        <div class="content-wrapper">
+          <div class="container-fluid">
+            <p>{{ object }} のデータを削除してよろしいですか？</p>
+
+            <form method="post">
+              <a class="btn btn-primary" href="{% url 'kakeibo:kakeibo_list' %}">戻る</a>
+              <button class="btn btn-danger">削除</button>
+              {% csrf_token %}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
