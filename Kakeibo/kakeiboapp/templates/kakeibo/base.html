@@ -4,13 +4,43 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrapのcss読み込み -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> -->
+
+    <!-- UIkitのcss読み込み -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
+
     <!-- DataTableのcssファイルを読み込む -->
     <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/>
     <title>Kakeibo</title>
   </head>
 
   <body>
+    <nav class="uk-navbar-container" uk-navbar>
+      <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+          <li class="uk-active"><a href="{% url 'kakeibo:kakeibo_list' %}"><h4><b>家計簿アプリ</b></h4></a></li>
+          <li>
+            <a href="#"><h5><b>グラフ</b></h5></a>
+            <div class="uk-navbar-dropdown">
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+              <li><a href="{% url 'kakeibo:kakeibo_circle' %}">円グラフ（割合）</b></a></li>
+              <li><a href="{% url 'kakeibo:kakeibo_line' %}">折れ線グラフ（推移）</b></a></li>
+            </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="uk-navbar-right">
+        <a class="uk-button uk-button-primary create-button" href="{% url 'kakeibo:kakeibo_create' %}"><h5><b>新規作成</b></h5></a>
+      </div>
+    </nav>
+
+    <style>
+      .create-button {
+        margin-right: 10px;
+      }
+    </style>
+
     {% block content %}
 
     <!-- ここに子テンプレートの内容が差し込まれる -->
@@ -18,7 +48,15 @@
     {% endblock %}
 
     <!-- bootstrapのjavascrit読み込み-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script> -->
+
+    <!-- Materialiのjavascrit読み込み-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- UIkitのjavascrit読み込み-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
+
     <!-- DataTablesのjavascrit読み込み-->
     <script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
     <!-- Databableの定義-->
@@ -31,6 +69,7 @@
               }
             });
         $("#kakeibo_list").DataTable({
+
             "searching": true,
             // 検索機能
             "paging": true,

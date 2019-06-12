@@ -4,22 +4,16 @@
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs -->
-      <ol class="breadcrumb">
-        <li class="breadcrumbs-item">
-          <a href="{% url 'kakeibo:kakeibo_list' %}">TOP</a>
-        </li>
-        <li class="breadcrumbs-item active">家計簿アプリ</li>
-      </ol>
-      <!-- Example DataTables Card -->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-server"></i> <b>家計簿アプリ</b></div>
-        <div class="card-body">
-          <div class="alert alert-info" role="alert">
-            データの更新が正常に行われました。</div>
-            <a class="btn btn-primary float-right" href="{% url 'kakeibo:kakeibo_list' %}">戻る</a>
+      <ul class="uk-breadcrumb">
+        <li><a href="{% url 'kakeibo:kakeibo_list' %}">TOP</a></li>
+        <li><span class="uk-disabled">データ更新</span></li>
+      </ul>
+
+      <legend class="uk-legend"><h4><b>データ更新</b></h4></legend>
+        <div class="uk-alert-primary" uk-alert>
+          <p>データの更新が正常に行われました。</p>
         </div>
-      </div>
+        <a class="uk-button  uk-button-small uk-button-primary" href="{% url 'kakeibo:kakeibo_list' %}">戻る</a>
     </div>
   </div>
 {% endblock content %}
